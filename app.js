@@ -29,6 +29,9 @@ app.use("/api/users", userRoutes);
 // questions routes middleware
 app.use("/api/questions",authMiddleware, questionRoute);
 app.use("/api/answers", authMiddleware,answerRoute);
+app.get("/",(req, res)=>{
+  res.send("Welcome to our API");
+})
 async function start() {
   try {
     const result = await dbConnection.execute("select 'test'");
